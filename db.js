@@ -1706,6 +1706,32 @@ var datos = {
                         "RA11"
                         ]
                 },
+
+                200:{
+                        "Estación":"Puente Club de Pesca", "Lat":"", "Long":"", "Icono":"","Icono_grande":"",
+                        "Rutas": [
+                        "RT1"
+                        ]                        
+                },
+                201:{
+                        "Estación":"Malecón", "Lat":"", "Long":"", "Icono":"","Icono_grande":"",
+                        "Rutas": [
+                        "RT1"
+                        ]                        
+                },
+                202:{
+                        "Estación":'Módulo de Policía "Y"', "Lat":"", "Long":"", "Icono":"","Icono_grande":"",
+                        "Rutas": [
+                        "RT1"
+                        ]                        
+                },
+                203:{
+                        "Estación":"Puente Club de Pesca", "Lat":"", "Long":"", "Icono":"","Icono_grande":"",
+                        "Rutas": [
+                        "RT1"
+                        ]                        
+                },
+
 }
 
 /**
@@ -1972,19 +1998,19 @@ for (var k in todas.lista){
 
 var aristas = new EdgeList();
 
-
 var RT1 = [
 	'Playa Caleta-RT1',
 	'Playa Caletilla-RT1',
 	'Plaza de Toros-RT1',
+    'Playa Caleta-RT1',
 	'San Martín-RT1',
 	'Tambuco-RT1',
 	'La Suiza-RT1',
-	//'Puente Club de Pesca-RT1',
+	'Puente Club de Pesca-RT1',
 	'Playa Langosta-RT1',
 	'Playa Manzanillo-RT1',
 	'Paseo del Pescador-RT1',
-	//'Malecón-RT1',
+	'Malecón-RT1',
 	'Zócalo | Oviedo-RT1',
 	'Melchor Ocampo-RT1',
 	'Seguro Social-RT1',
@@ -1996,17 +2022,15 @@ var RT1 = [
 	'Dr. Ignacio Chávez-RT1',
 	'Encino-RT1',
 	'Jacarandas-RT1',
-	/*
 	'Módulo de Policía "Y"-RT1',
-	'Guadalupe Victoria-RT1',
-	'La Cima-RT1',
+    'Guadalupe Victoria-RT1',
+    'La Cima-RT1',
 	'Puente 1º de Mayo-RT1',
 	'Puente Juan Aldama-RT1',
 	'Puente La Tolva-RT1',
-	'Ignacio Zaragiza-RT1',
+	'Ignacio Zaragoza-RT1',
 	'Los Lirios-RT1',
 	'Puente Niños Héroes-RT1',
-	*/
 	'Terminal de transferencia-RT1',
 ];
 
@@ -2274,6 +2298,7 @@ var RA10 = [
 			'Av. Sonora-RA10',
 
 ];
+
 var RA11 = [
 		'Av. Tanque-RA11',
 		'Condominio D-RA11',
@@ -2294,7 +2319,8 @@ var RA11 = [
 		'Nuevo León-RA11',
 		'Jalapa-RA11',
 		'Colima-RA11',
-		];
+];
+
 
 // Lista de todas las rutas.
 
