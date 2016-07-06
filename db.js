@@ -2063,330 +2063,6 @@ for (var k in todas.lista){
 }
 
 var aristas = new EdgeList();
-/*
-var RT1 = [
-	'Playa Caleta-RT1',
-	'Playa Caletilla-RT1',
-	'Plaza de Toros-RT1',
-    'Playa Caleta-RT1',
-	'San Martín-RT1',
-	'Tambuco-RT1',
-	'La Suiza-RT1',
-	'Puente Club de Pesca-RT1',
-	'Playa Langosta-RT1',
-	'Playa Manzanillo-RT1',
-	'Paseo del Pescador-RT1',
-	'Malecón-RT1',
-	'Zócalo | Oviedo-RT1',
-	'Melchor Ocampo-RT1',
-	'Seguro Social-RT1',
-	'Cine Río-RT1',
-	'Flores Magón-RT1',
-	'Michoacán-RT1',
-	'Palacio Municipal-RT1',
-	'Las Anclas-RT1',
-	'Dr. Ignacio Chávez-RT1',
-	'Encino-RT1',
-	'Jacarandas-RT1',
-	'Módulo de Policía "Y"-RT1',
-    'Guadalupe Victoria-RT1',
-    'La Cima-RT1',
-	'Puente 1º de Mayo-RT1',
-	'Puente Juan Aldama-RT1',
-	'Puente La Tolva-RT1',
-	'Ignacio Zaragoza-RT1',
-	'Los Lirios-RT1',
-	'Puente Niños Héroes-RT1',
-	'Terminal de transferencia-RT1',
-];
-
-var RT2 = [
-	'Zócalo | Oviedo-RT2',
-	'Melchor Ocampo-RT2',
-	'Seguro Social-RT2',
-	'Cine Río-RT2',
-	'Flores Magón-RT2',
-	'Michoacán-RT2',
-	'Palacio Municipal-RT2',
-	'Las Anclas-RT2',
-	'Dr. Ignacio Chávez-RT2',
-	'Encino-RT2',
-	'Jacarandas-RT2',
-	'Terminal de transferencia-RT2',
-	'Zapata-RT2',
-	'La Postal-RT2',
-	'Vacacional-RT2',
-	'Central de abastos-RT2',
-	'Leyes de Reforma-RT2',
-	'Retorno-RT2',
-	'La Venta-RT2',
-	'Paso Limonero-RT2',
-];
-
-var RT3 = [
-	'Zócalo | Oviedo-RT3',
-	'Melchor Ocampo-RT3',
-	'Seguro Social-RT3',
-	'Cine Río-RT3',
-	'Flores Magón-RT3',
-	'Michoacán-RT3',
-	'Palacio Municipal-RT3',
-	'Las Anclas-RT3',
-	'Dr. Ignacio Chávez-RT3',
-	'Encino-RT3',
-	'Jacarandas-RT3',
-	'Libertad-RT3',
-	'Bod. Costa Chica-RT3',
-	//'17',
-	'Cura-RT3',
-	'Clínica-RT3',
-	'El Rastro-RT3',
-	'5 de Mayo-RT3',
-	'La Máquina-RT3',
-	'Planta Capama-RT3',
-	//'10',
-	//'Cruzero Cayaco-RT3',
-	'Tecnológico-RT3',
-	'Iglesia-RT3',
-	'Piedra Roja-RT3',
-	'Albañil-RT3',
-	//'4',
-	'Peña Blanca-RT3',
-	'Av. Paseo Europeo-RT3',
-	'Sec. 100-RT3',
-];
-
-var RT4 = [
-	'La Ceiba-RT4',
-	'Fragata Zaragoza-RT4',
-	'Fragata María-RT4',
-	'Almirante C. C.-RT4',
-	'Nao Victoria-RT4',
-	'Almendro-RT4',
-	'Palmas-RT4',
-	'Deportes-RT4',
-	'Delprado-RT4',
-	'Torres Gemelas-RT4',
-	'Playa Condesa-RT4',
-	'El Morro-RT4',
-	'La Diana-RT4',
-	'Av. Universidad 2-RT4',
-	'Navegante Juan Pérez-RT4',
-	'Mercado de Artesanías-RT4',
-	'G. de Sandoval-RT4',
-	'Palacio Municipal-RT4',
-	'Michoacán-RT4',
-	'Flores Magón-RT4',
-	'Cine Río-RT4',
-	'Seguro Social-RT4',
-	'Melchor Ocampo-RT4',
-	'Zócalo | Oviedo-RT4',
-];
-
-var RT5 = [
-	'La Ceiba-RT5',
-	'Fragata Zaragoza-RT5',
-	'Fragata María-RT5',
-	'Almirante C. C.-RT5',
-	'Nao Victoria-RT5',
-	'Almendro-RT5',
-	'Palmas-RT5',
-	'Deportes-RT5',
-	'Delprado-RT5',
-	'Torres Gemelas-RT5',
-	'Playa Condesa-RT5',
-	'El Morro-RT5',
-	'La Diana-RT5',
-	'Arroyo-RT5',
-	'Amates-RT5',
-	'Terminal de transferencia-RT5',
-];
-
-var RA1 = [
-			'Palma Sola-RA1',
-			'Río Atoyac-RA1',
-			'Eje Vicente Guerrero-RA1',
-			'José María Izazaga-RA1',
-			'Cuauhtémoc-RA1',
-			'Canal del Arroyo-RA1',
-			'Icacos-RA1',
-			'Julián Blanco-RA1',
-			'Jesús Salgado-RA1',
-			'Alta Cuauhtémoc-RA1',
-			'Eduardo Neri-RA1',
-			'Nicolás Bravo-RA1',
-			'Ejido Las Pozas-RA1',
-			'Zapata-RA1',
-			'Terminal de transferencia-RA1',
-];
-
-var RA2 = [
-			'Av. del Capire-RA2',
-			'And. Circuito-RA2',
-			'Av. de la Ceiba-RA2',
-			'Orizaba-RA2',
-			'Atlixtac-RA2',
-			'Tlapehuala-RA2',
-			'Nautla-RA2',
-			'Vacacional-RA2',
-			'La Postal-RA2',
-			'Zapata-RA2',
-			'Terminal de transferencia-RA2',
-
-];
-
-var RA3 = [
-			'Santo Tomás-RA3',
-			'Ventura Escobar-RA3',
-			'Zócalo-RA3',
-			'Fco. I. Madero-RA3',
-			'Av. del Tanque-RA3',
-			'Cion. Tres Tamarindos-RA3',
-			'Chico Portillo-RA3',
-			'And. Bugambilias-RA3',
-			'10 de Mayo-RA3',
-			'La Venta-RA3',
-			'Retorno-RA3',
-			'Leyes de Reforma-RA3',
-			'Central de abastos-RA3',
-			'Paso Limonero-RA3',
-			'Vacacional-RA3',
-			'La Postal-RA3',
-			'Zapata-RA3',
-			'Terminal de transferencia-RA3',
-
-];
-
-var RA4 = [
-			'Tulipanes-RA4',
-			'Clavel-RA4',
-			'And. Fabrica-RA4',
-			'Calle 15-RA4',
-			'Calle 10-RA4',
-			'Olivos-RA4',
-			'Vacacional-RA4',
-			'La Postal-RA4',
-			'Zapata-RA4',
-			'Terminal de transferencia-RA4'
-];
-
-var RA5 = [
-			'Cocula-RA5',
-			'Simón Bolivar-RA5',
-			'Calle 14-RA5',
-			'Calle 10-RA5',
-			'Calle 27-RA5',
-			'Calle 23-RA5',
-			'Calle 17-RA5',
-			'Calle 11-RA5',
-			'Calle 7-RA5',
-			'Calle 3-RA5',
-			'Zapata-RA5',
-			'Terminal de transferencia-RA5',
-];
-
-var RA6 = [
-			'Av. de Las Cruces-RA6',
-			'San Patricio-RA6',
-			'Francisco Márquez-RA6',
-			'Venustiano Carranza-RA6',
-			'Simón Bolivar-RA6',
-			'Vicente Guerrero-RA6',
-			'Módulo de Policía "Y"-RA6',
-];
-
-var RA7 = [
-			'2 de Abril-RA7',
-			'Av. Cumbres-RA7',
-			'Jorullo-RA7',
-			'Popocatépetl-RA7',
-			'Av. del Colegio-RA7',
-			'Las Conchas-RA7',
-			'Glorieta-RA7',
-			'M. Heredia-RA7',
-			'Jacarandas-RA7',
-			'Bugambilias-RA7',
-];
-
-var RA8 = [
-			'2 de Abril-RA8',
-			'Av. Cumbres-RA8',
-			'Jorullo-RA8',
-			'Popocatépetl-RA8',
-			'Av. del Colegio-RA8',
-			'Alejandro Cervantes-RA8',
-			'Dragos-RA8',
-			'Amates-RA8',
-			'Arroyo-RA8',
-			'Comercial M.-RA8',
-			'La Diana-RA8',
-			'Av. Bella Vista-RA8',
-			'Av. Universidad 1-RA8',
-			'Navegante Juan Pérez-RA8',
-			'Y. Yáñez Pinzón-RA8',
-			'Norte-RA8',
-			'La Nao-RA8',
-			'Av. Universidad 2-RA8',
-			'G. de Sandoval-RA8',
-			'Las Anclas-RA8',
-			'Norte-RA8'
-
-];
-var RA9 = [
-			'Monte Everest-RA9',
-			'Juan de Dios Bonilla-RA9',
-			'Niños Héroes de Veracruz-RA9',
-			'Castillo Bretón-RA9',
-			'Fernando Magallanes-RA9',
-			'Av. Horacio Nelson-RA9',
-			'Cristobal Colón-RA9',
-			'Almirante C. C.-RA9'
-
-];
-var RA10 = [
-			'Av. Tanque-RA10',
-			'Condominio D-RA10',
-			'Tuxpan-RA10',
-			'Nautla-RA10',
-			'Tampico-RA10',
-			'Río Coyuca-RA10',
-			'Tepic-RA10',
-			'Nogales-RA10',
-			'Querétaro-RA10',
-			'Durango-RA10',
-			'Zacatecas-RA10',
-			'Tamaulipas-RA10',
-			'Torreón-RA10',
-			'Av. Sonora-RA10',
-			'Chihuahua-RA10',
-			'Michoacán-RA10',
-			'Flores Magón-RA10',
-			'Av. Sonora-RA10',
-
-];
-
-var RA11 = [
-		'Av. Tanque-RA11',
-		'Condominio D-RA11',
-		'Tuxpan-RA11',
-		'Nautla-RA11',
-		'Tampico-RA11',
-		'Río Coyuca-RA11',
-		'B. D. del Castillo-RA11',
-		'Baja California-RA11',
-		'Querétaro-RA11',
-		'Chiapas-RA11',
-		'Oaxaca-RA11',
-		'Colima-RA11',
-		'Coahuila-RA11',
-		'Av. Sonora-RA11',
-		'Miguel Acuña-RA11',
-		'Cda. de Vallarta-RA11',
-		'Nuevo León-RA11',
-		'Jalapa-RA11',
-		'Colima-RA11',
-];
-*/
 
 var RT1 = [
     'Playa Caleta-RT1',
@@ -2705,9 +2381,6 @@ var RA11 = [
 ];
 
 
-
-
-
 // Lista de todas las rutas.
 
 var rutas  = [RT1, RT2, RT3, RT4, RT5, RA1, RA2, RA3, RA4, RA5, RA6, RA7, RA8, RA9, RA10, RA11];
@@ -2879,6 +2552,200 @@ aristas.append(arista);
 
 
 
+var arista = getArista('Dr. Ignacio Chávez-RT2', 'Dr. Ignacio Chávez-RT1');
+aristas.append(arista);
+var arista = getArista('Dr. Ignacio Chávez-RT1', 'Dr. Ignacio Chávez-RT3');
+aristas.append(arista);
+
+var arista = getArista('Encino-RT2', 'Encino-RT1');
+aristas.append(arista);
+var arista = getArista('Encino-RT1', 'Encino-RT3');
+aristas.append(arista);
+
+
+var arista = getArista('Jacarandas-RT2', 'Jacarandas-RT1');
+aristas.append(arista);
+var arista = getArista('Jacarandas-RT1', 'Jacarandas-RT3');
+aristas.append(arista);
+var arista = getArista('Jacarandas-RT3', 'M. Heredia-RA7');
+aristas.append(arista);
+
+
+
+var arista = getArista('Terminal de Transferencia-RA4', 'Terminal de Transferencia-RA5');
+aristas.append(arista);
+var arista = getArista('Terminal de Transferencia-RA5', 'Terminal de Transferencia-RT2');
+aristas.append(arista);
+var arista = getArista('Terminal de Transferencia-RT2', 'Terminal de Transferencia-RT1');
+aristas.append(arista);
+var arista = getArista('Terminal de Transferencia-RT1', 'Terminal de Transferencia-RT5');
+aristas.append(arista);
+var arista = getArista('Terminal de Transferencia-RT5', 'Terminal de Transferencia-RA3');
+aristas.append(arista);
+var arista = getArista('Terminal de Transferencia-RA3', 'Terminal de Transferencia-RA2');
+aristas.append(arista);
+var arista = getArista('Terminal de Transferencia-RA2', 'Terminal de Transferencia-RA1');
+aristas.append(arista);
+
+
+
+
+
+var arista = getArista('Zapata-RA4', 'Zapata-RA5');
+aristas.append(arista);
+var arista = getArista('Zapata-RA5', 'Zapata-RT2');
+aristas.append(arista);
+var arista = getArista('Zapata-RT2', 'Zapata-RA3');
+aristas.append(arista);
+var arista = getArista('Zapata-RA3', 'Zapata-RA2');
+aristas.append(arista);
+var arista = getArista('Zapata-RA2', 'Zapata-RA1');
+aristas.append(arista);
+
+
+
+
+
+var arista = getArista('La Postal-RA4', 'La Postal-RT2');
+aristas.append(arista);
+var arista = getArista('La Postal-RT2', 'La Postal-RA3');
+aristas.append(arista);
+var arista = getArista('La Postal-RA3', 'La Postal-RA2');
+aristas.append(arista);
+
+
+
+
+var arista = getArista('Vacacional-RA4', 'Vacacional-RT2');
+aristas.append(arista);
+var arista = getArista('Vacacional-RT2', 'Vacacional-RA3');
+aristas.append(arista);
+var arista = getArista('Vacacional-RA3', 'Vacacional-RA2');
+aristas.append(arista);
+
+
+
+
+var arista = getArista('Central de Abastos-RT2', 'Central de Abastos-RA3');
+aristas.append(arista);
+
+
+
+
+
+var arista = getArista('Leyes de Reforma-RT2', 'Leyes de Reforma-RA3');
+aristas.append(arista);
+
+
+
+
+var arista = getArista('Retorno-RT2', 'Retorno-RA3');
+aristas.append(arista);
+
+
+
+
+
+var arista = getArista('La Venta-RT2', 'La Venta-RA3');
+aristas.append(arista);
+
+
+
+
+
+
+var arista = getArista('Paso Limonero-RT2', 'Paso Limonero-RA3');
+aristas.append(arista);
+
+
+// RA6 con RT1
+var arista = getArista('Av. de Las Cruces-RA6', 'Guadalupe Victoria-RT1');
+aristas.append(arista)    
+
+
+// RT4 y RT5
+var arista = getArista('La Ceiba-RT4', 'La Ceiba-RT5');
+aristas.append(arista);
+
+var arista = getArista('Fragata Zaragoza-RT4', 'Fragata Zaragoza-RT5');
+aristas.append(arista);
+
+
+
+var arista = getArista('Almirante C. C.-RT4', 'Almirante C. C.-RT5');
+aristas.append(arista);
+var arista = getArista('Almirante C. C.-RT5', 'Almirante C. C.-RA9');
+aristas.append(arista);
+
+
+
+
+var arista = getArista('Nao Victoria-RT4', 'Nao Victoria-RT5');
+aristas.append(arista);
+
+var arista = getArista('Almendro-RT4', 'Almendro-RT5');
+aristas.append(arista);
+
+var arista = getArista('Palmas-RT4', 'Palmas-RT5');
+aristas.append(arista);
+
+var arista = getArista('Deportes-RT4', 'Deportes-RT5');
+aristas.append(arista);
+
+var arista = getArista('Delprado-RT4', 'Delprado-RT5');
+aristas.append(arista);
+
+var arista = getArista('Torres Gemelas-RT4', 'Torres Gemelas-RT5');
+aristas.append(arista);
+
+var arista = getArista('Playa Condesa-RT4', 'Playa Condesa-RT5');
+aristas.append(arista);
+
+var arista = getArista('El Morro-RT4', 'El Morro-RT5');
+aristas.append(arista);
+
+var arista = getArista('La Diana-RT4', 'La Diana-RA8');
+aristas.append(arista);
+var arista = getArista('La Diana-RA8', 'La Diana-RT5');
+aristas.append(arista);
+
+
+// RA7 y RA8
+var arista = getArista('2 de Abril-RA8', '2 de Abril-RA7');
+aristas.append(arista);
+
+
+var arista = getArista('Av. Cumbres-RA8', 'Av. Cumbres-RA7');
+aristas.append(arista);
+
+var arista = getArista('Jorullo-RA8', 'Jorullo-RA7');
+aristas.append(arista);
+var arista = getArista('Popocatépetl-RA8', 'Popocatépetl-RA7');
+aristas.append(arista);
+var arista = getArista('Av. del Colegio-RA8', 'Av. del Colegio-RA7');
+aristas.append(arista);
+
+// RA8 y RT5
+var arista = getArista('Los Amates-RA8', 'Los Amates-RT5');
+aristas.append(arista);
+var arista = getArista('Arroyo-RA8', 'Arroyo-RT5');
+aristas.append(arista);
+
+
+
+// RT4 y RA8
+//En estas tengo dudas, no esta claro en el mapa que estaciones se unes y se repiten nombres
+//
+
+
+
+
+var arista = getArista('Av. Universidad-RT4', 'Av. Universidad-RA8');
+aristas.append(arista);
+
+var arista = getArista('Navegante Juan Pérez-RT4', 'Navegante Juan Pérez-RA8');
+aristas.append(arista);
+
 /*
 * LA INICIALIZACION DE LA LISTA DE TODAS LAS ESTACIONES Y LA LISTA DE 
 * ARISTAS QUE REPRESENTA A LA RED ACABUS LISTA EN ESTE PUNTO
@@ -2892,7 +2759,7 @@ aristas.append(arista);
 var a;
 var b;
 for(var t = 0; t < nodos_estaciones.length; t++){
-	if(nodos_estaciones[t].data.id == 'San Martín-RT1'){
+	if(nodos_estaciones[t].data.id == 'Santo Tomás-RA3'){
 		a = nodos_estaciones[t];
 	}
 	if(nodos_estaciones[t].data.id == 'Condominio D-RA11'){
