@@ -1708,47 +1708,6 @@ var datos = {
                 },
 }
 
-
-
-// Necesarias para construir los objets como los necesito.		
-var estaciones = datos;
-var listas_adyacencias = {};
-
-
-/* 
-
-Tenemos que construir una lista de adyacencias para cada estaciuon
-
-*/
-
-for(var id = 1; id < 284; id++){
-	var estacion = estaciones[id]
-	
-	if(estacion != undefined){
-		estacion['Conexiones'].forEach(
-			function(e){
-				var lista = listas_adyacencias[id];
-
-				// La lista de adyacencias ya existe
-				if(lista != undefined){
-					lista.push(e);
-				} else {
-					listas_adyacencias[id] = [e];
-				}
-			}
-		);
-	}
-}
-/*
-
-En este momento si la lista de estaciones adyacentes de una estacion x es:
-
-listas_adyacencias[x]
-
-*/
-
-
-
 /**
 * Para Dijkstra necesito un nodo
 * para guardar si un nodo ya fue visitado 
@@ -1955,68 +1914,9 @@ class EdgeList{
 	}
 }
 
-
-
-
-
-
-/*
-// Obtenemos una lista de nodos a partir de las estaciones
-
-var estaciones_N = [];
-
-// Puse este indice porque antes habia mas objetos en el json
-
-for(id = 1; id < 284; id++){
-	estacion = estaciones[id]
-	if(estacion != undefined){
-		estaciones_N.push(new nodo_D(id, estacion));
-	}
-}
-
-// Obtenemos las listas de adycencias de aristas
-
-var aristas = new EdgeList();
-
-for(var k = 0; k < estaciones_N.length; k++){
-	var nodo = estaciones_N[k];
-	var ady_aux = listas_adyacencias[nodo.id];
-
-	if(ady_aux != undefined){
-		for(var i = 0; i < ady_aux.length; i++){
-			var B;
-			var costo;
-			for(var j = 0; j < estaciones_N.length; j++){
-				if(estaciones_N[j].id == ady_aux[i].id){
-					B = estaciones_N[j];
-					costo = ady_aux[i].costo;
-					continue;
-				}
-			}
-			var aris = new Edge(nodo, B, costo);
-			aristas.append(aris)
-		}
-	}
-}
-
-
-var a = estaciones_N[0];
-var b = estaciones_N[5];
-var grafica = new Grafica(estaciones_N, aristas);
-var dijkstra = new Dijkstra(grafica);
-var ruta = dijkstra.getMinPath(a,b);
-
-
-console.log('Ruta minima.');
-console.log('Desde ' + a.data['Estación']);
-console.log('Hasta ' + b.data['Estación']);
-console.log('La ruta es:');
-for(var i = 0; i < ruta.length; i++){
-	console.log(ruta[i].data['Estación']);
-}
-
+/**
+* Para guardar la lista de estaciones
 */
-
 class lista_estaciones{
 	constructor(){
 		this.lista = {};
@@ -2026,6 +1926,9 @@ class lista_estaciones{
 	}
 }
 
+/**
+* Representa una estacion
+*/
 class Estacion{
 	constructor(nombre, ruta){
 		this.id = nombre + '-' + ruta;
@@ -2034,6 +1937,16 @@ class Estacion{
 	}
 }
 
+class Data_Builder{
+    constructor(datos){
+        this.datos = datos;
+        this.estaciones = new lista_estaciones();
+        this.aristas = new EdgeList();
+    }
+    build(){
+
+    }
+}
 
 
 var todas = new lista_estaciones();
@@ -2383,9 +2296,14 @@ var RA11 = [
 		'Colima-RA11',
 		];
 
+// Lista de todas las rutas.
+
 var rutas  = [RT1, RT2, RT3, RT4, RT5, RA1, RA2, RA3, RA4, RA5, RA6, RA7, RA8, RA9, RA10, RA11];
 
 
+/**
+* Agrega una ruta (lista de estaciones) a la etructura 
+*/
 function agregaRuta(ruta){
 
 	for(var i = 0; i < ruta.length; i++){
@@ -2419,21 +2337,23 @@ function agregaRuta(ruta){
 
 }
 
+/*
+* Agregamos todas las rutas 
+*/
 for(var r = 0; r < rutas.length; r++){
 	var ruta = rutas[r];
 	if(agregaRuta(ruta)){
 
 	} else {
-		console.log('Error en la ruta con indixe ' + r)
+		console.log('Error en la ruta con indice ' + r)
 	}
 }
 
 /**
 *
-* Agregamos todas las adyacencias entre rutas
-*
+* Devuelve una arista que a las estaciones
+* cuyos identificadores son dados
 */
-
 function getArista(esta1_id, esta2_id){
 	var edge;
 	var nodo1;
@@ -2449,7 +2369,13 @@ function getArista(esta1_id, esta2_id){
 	return new Edge(nodo1, nodo2, 1);
 }
 
-// Estaciones adyacentes en RA10 y RA11 
+/*
+* Ya tenemos todas las rutas representadas en la lista de adyacencias
+* Pero nos falta unir las estaciones que estan en distintas rutas.
+*/
+
+
+// Estaciones adyacentes en RA10 y RA11
 
 var arista = getArista('Av. Tanque-RA10', 'Av. Tanque-RA11');
 aristas.append(arista);
@@ -2466,10 +2392,16 @@ aristas.append(arista);
 var arista = getArista('Río Coyuca-RA10', 'Río Coyuca-RA11');
 aristas.append(arista);
 
+/*
+* LA INICIALIZACION DE LA LISTA DE TODAS LAS ESTACIONES Y LA LISTA DE 
+* ARISTAS QUE REPRESENTA A LA RED ACABUS LISTA EN ESTE PUNTO
+*/
 
+/*
+* EJEMPLO DE USO
+*/
 
-
-// Nodos de origen y destino
+// Elegimos el nodo de origen y destino
 var a;
 var b;
 for(var t = 0; t < nodos_estaciones.length; t++){
@@ -2480,13 +2412,14 @@ for(var t = 0; t < nodos_estaciones.length; t++){
 		b = nodos_estaciones[t];
 	}
 }
+// Inicializamos la grafica y la instancia del algoritmo de rutas mínimas de Dijktra.
 
 var grafica = new Grafica(nodos_estaciones, aristas);
 var dijkstra = new Dijkstra(grafica);
-
 var ruta = dijkstra.getMinPath(a,b);
 
 
+// Imprimimos la ruta computada
 console.log('Ruta minima.');
 console.log('Desde ' + a.data['nombre'] + ", Ruta: " + a.data['ruta']);
 console.log('Hasta ' + b.data['nombre'] + ", Ruta: " + a.data['ruta']);
