@@ -2759,10 +2759,10 @@ aristas.append(arista);
 var a;
 var b;
 for(var t = 0; t < nodos_estaciones.length; t++){
-	if(nodos_estaciones[t].data.id == 'Santo Tomás-RA3'){
+	if(nodos_estaciones[t].data.id == 'Cocula-RA5'){
 		a = nodos_estaciones[t];
 	}
-	if(nodos_estaciones[t].data.id == 'Condominio D-RA11'){
+	if(nodos_estaciones[t].data.id == 'Palma Sola-RA1'){
 		b = nodos_estaciones[t];
 	}
 }
@@ -2770,8 +2770,57 @@ for(var t = 0; t < nodos_estaciones.length; t++){
 
 var grafica = new Grafica(nodos_estaciones, aristas);
 var dijkstra = new Dijkstra(grafica);
+
 var ruta = dijkstra.getMinPath(a,b);
 
+/*
+* Cuando hay mas de dos estacuones repetidas solo dejamos la primer y ultima
+*/
+
+//var ruta = [1,1,1,2,3,4,4,4,4,5,5,5,6,6,7,7,7,8];
+var sin_repetidos = [];
+var repitiendo = false;
+var primero;
+var ultima_repetida;
+for(var i = 0; i < ruta.length; i++){
+  var actual = ruta[i];
+  var siguiente;
+  var j = i + 1;
+  if(j < ruta.length + 1){
+
+    siguiente = ruta[j];
+    if(j == ruta.length ) {
+        sin_repetidos.push(ruta[j-1]);
+        break;
+    }
+    // Repetidas
+    if(siguiente.data['nombre'] == actual.data['nombre']){
+    //if(siguiente == actual){
+      if(!repitiendo){
+        
+        primero = actual;
+        repitiendo = true;
+
+        sin_repetidos.push(primero);
+      }
+      // Saltamos a la siguiente iteracion del for, esto salta todo el cuerpo del for.
+      continue;
+    } else {
+      // Son distintas pero estabamos repitiendo entonces la ultima de las repetidas esta en el indice j - 1
+      if(repitiendo){
+        repitiendo = false;
+        ultima_repetida = ruta[j-1];
+        sin_repetidos.push(ultima_repetida);
+      } else {
+        sin_repetidos.push(actual);
+      }
+    }
+  }
+}
+//console.log(sin_repetidos);
+
+
+ruta = sin_repetidos;
 
 // Imprimimos la ruta computada
 console.log('Ruta minima.');
@@ -2781,3 +2830,4 @@ console.log('La ruta es:');
 for(var i = 0; i < ruta.length; i++){
 	console.log("Estacion: " + ruta[i].data['nombre'] + ", Ruta: "+ ruta[i].data['ruta']);
 }
+
